@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer');
 
 //construindo um array com o nome das imagens
 const personagens =[
@@ -25,10 +27,14 @@ let primeiraCarta = '';
 let segundaCarta = '';
 
 const verificaFimDoJogo = () => {
-    const cartasDesabilitadas = document.querySelectorAll('.disable-card');
+    const cartasDesabilitadas = document.querySelectorAll('.disabled-card');
 
     if (cartasDesabilitadas.length === 20) {
-        alert('Fim de jogo');
+        clearInterval(this.loop);
+
+        setTimeout(() => {
+            alert(`Parabéns ${spanPlayer.innerHTML}! Seu tempo foi de ${timer.innerHTML} `);
+        }, 1000)
     }
 }
 
@@ -57,7 +63,6 @@ const checkCards = () => {
             segundaCarta = '';
 
         }, 1000);
-        
     }
 }
 
@@ -77,7 +82,6 @@ const revealCard = ({ target }) => {
     }
 
     checkCards();
-
 }
 
 //função que cria carta e as insere como filhas em card
@@ -100,7 +104,6 @@ const criaCarta = (personagem) => {
 const loadGame = () => {
 
     const duplicarPersonagens = [...personagens, ...personagens]
-
     const suffleArray = duplicarPersonagens.sort(() => Math.random() - 0.49);
 
     //cada elemento de ~personagens~ demos o nome no singular -> ~personagem~
@@ -111,7 +114,23 @@ const loadGame = () => {
     })
 }
 
-loadGame();
+const startTimer = () => {
+    this.loop = setInterval(() => {
+        const currentTime = Number(timer.innerHTML);
+        timer.innerHTML = currentTime + 1;
+    }, 1000)
+}
+
+//vamos executar alguma coisa quando a janela tiver carregada.
+window.onload = () => {
+    const userName = localStorage.getItem('user');
+    spanPlayer.innerHTML = userName;
+    startTimer();
+    loadGame();
+}
+
+console.log(this);
+
 
 
 
