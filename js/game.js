@@ -24,6 +24,14 @@ const criaElemento = (tag, className) => {
 let primeiraCarta = '';
 let segundaCarta = '';
 
+const verificaFimDoJogo = () => {
+    const cartasDesabilitadas = document.querySelectorAll('.disable-card');
+
+    if (cartasDesabilitadas.length === 20) {
+        alert('Fim de jogo');
+    }
+}
+
 const checkCards = () => {
     
     const primeiroPersonagem = primeiraCarta.getAttribute('data-character');
@@ -37,6 +45,8 @@ const checkCards = () => {
 
         primeiraCarta = '';
         segundaCarta = '';
+
+        verificaFimDoJogo();
 
     } else {
         setTimeout(() => {
