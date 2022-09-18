@@ -1,0 +1,25 @@
+.table{
+    background-color: azure;
+    width: 100vw;
+    max-width: 800px;
+}
+
+.table__line, .table__header{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.table__header{
+    background-color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.table__line{
+    color: black;
+}
+
+
+
+

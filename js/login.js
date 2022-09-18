@@ -1,6 +1,6 @@
-const form = document.querySelector('.login__form')
-const input = document.querySelector('.login__input')
-const button = document.querySelector('.login__button')
+const form = document.querySelector('.login__form');
+const input = document.querySelector('.login__input');
+const button = document.querySelector('.login__button');
 
 const handleSubmit = (e) => {
     e.preventDefault();
