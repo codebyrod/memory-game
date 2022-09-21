@@ -3,6 +3,9 @@ const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
 const tableContent = document.querySelector('.table__content');
 const headerGame = document.querySelector('.header__game');
+const minute = document.querySelector('.minute');
+const seconds = document.querySelector('.seconds');
+const decimo = document.querySelector('.decimo');
 
 //construindo um array com o nome das imagens
 const characters = [
@@ -17,6 +20,8 @@ const characters = [
     'image09',
     'image10', */
 ]
+
+let timerCount;
 
 //função que cria o elemento com a classe
 const createElement = (tag, className) => {
@@ -33,28 +38,26 @@ const addItemRank = () => {
     if(localStorage.ranking){
         arrRank = JSON.parse(localStorage.ranking);
     }
-    // const [namePlayer, timerPlayer] = [spanPlayer.innerHTML, timer.innerHTML];
-    
-    rankingPlayer.push(spanPlayer.innerHTML, timer.innerHTML);
+
+    rankingPlayer.push('medal', spanPlayer.innerHTML, timer.innerHTML);
     arrRank.push(rankingPlayer);
-    // localStorage.ranking = JSON.stringify(arrRank);
     localStorage.setItem('ranking', JSON.stringify(arrRank));
 }
 
 const checkEnd = () => {
     const disabledCard = document.querySelectorAll('.disabled-card');
-    
-    if (disabledCard.length === 2) {
-        clearInterval(this.loop);
-        
-        setTimeout(() => {
-            addItemRank();
-            
-            alert(`Parabéns ${spanPlayer.innerHTML}! Seu tempo foi de ${timer.innerHTML} `);
-            window.location = 'ranking.html';
-        }, 1000)
+    console.log('checkEnd, funfando')
 
-    }
+        if (disabledCard.length === 2) {
+            clearInterval(timerCount);
+            console.log('foradosettime, funfando');
+            
+            setTimeout(() => {
+                addItemRank();
+                alert(`Parabéns ${spanPlayer.innerHTML}! Seu tempo foi de ${minute.innerHTML}:${seconds.innerHTML}:${decimo.innerHTML} `);
+                window.location = 'ranking.html';
+            }, 700);
+        }
 }
 
 let firstCard = '';
@@ -133,25 +136,43 @@ const loadGame = () => {
     });
 };
 
-const startTimer = () => {
-    this.loop = setInterval(() => {
-        const currentTime = Number(timer.innerHTML);
-        timer.innerHTML = currentTime + 1;
-    }, 1000)
-};
+const createCounter = () => {
+
+    let min = 0;
+    let sec = 0;
+    let dec = 0;
+
+    setInterval(() => {
+        minute.innerHTML = min < 10 ? '0' + min : min;
+        seconds.innerHTML = sec < 10 ? '0' + sec : sec;
+        decimo.innerHTML = dec < 10 ? '0' + dec : dec;
+
+        if(dec < 9) dec++;
+        else if (sec < 59) {dec = 0; sec++}
+        else if (min < 59) {dec = 0; sec = 0; min++}       
+    }, 100)
+}
+
 
 //vamos executar alguma coisa quando a janela tiver carregada.
 window.onload = () => {
     const userName = localStorage.getItem('user');
     spanPlayer.innerHTML = userName;
 
-    startTimer();
+    createCounter();
     loadGame();
 };
 
+/* const medal = () => {
+    const arrMedal = [...medal]
+    const medal = document.querySelectorAll('.medal');
+
+
+} */
+
 createRank = () => {
-    arrRank = JSON.parse(localStorage.getItem('ranking')) ;
-    arrRank.forEach((line) => {
+   const arrRankEnd = JSON.parse(localStorage.getItem('ranking'));
+    arrRankEnd.forEach((line) => {
         const tableLine = createElement('div', 'table__line');
         tableContent.appendChild(tableLine);
         
@@ -159,12 +180,16 @@ createRank = () => {
             const p = createElement('p', '');
             p.innerHTML = text;
             tableLine.appendChild(p);
-        });
-    }); 
 
-    console.log(tableContent);
-    return tableContent;
+            const medal = tableLine.firstChild;
+            medal.className = 'medal';
+        });
+
+        // medal();
+    });
+
 }
 
-
 createRank();
+
+
