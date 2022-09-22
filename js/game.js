@@ -30,16 +30,20 @@ const createElement = (tag, className) => {
     return element;
 };
 
-let rankingPlayer = [];
+let rankingPlayer;
 let arrRank = [];
 
 const addItemRank = () => {
+
+    const fullTimer = `${minute.innerHTML}:${seconds.innerHTML}:${decimo.innerHTML}`;
+    console.log(fullTimer);
 
     if(localStorage.ranking){
         arrRank = JSON.parse(localStorage.ranking);
     }
 
-    rankingPlayer.push('medal', spanPlayer.innerHTML, timer.innerHTML);
+    rankingPlayer = {medal: 'medal', player: spanPlayer.innerHTML, timeRank: fullTimer};
+    // rankingPlayer.push({medal: 'medal', player: spanPlayer.innerHTML, time: fullTimer});
     arrRank.push(rankingPlayer);
     localStorage.setItem('ranking', JSON.stringify(arrRank));
 }
@@ -51,7 +55,7 @@ const checkEnd = () => {
         if (disabledCard.length === 2) {
             clearInterval(timerCount);
             console.log('foradosettime, funfando');
-            
+
             setTimeout(() => {
                 addItemRank();
                 alert(`Parabéns ${spanPlayer.innerHTML}! Seu tempo foi de ${minute.innerHTML}:${seconds.innerHTML}:${decimo.innerHTML} `);
@@ -64,7 +68,7 @@ let firstCard = '';
 let secondCard = '';
 
 const checkCards = () => {
-    
+
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
 
@@ -125,7 +129,6 @@ const createCard = (character) => {
 };
 
 const loadGame = () => {
-
     const doubleCharacters = [...characters, ...characters]
     const suffleArray = doubleCharacters.sort(() => Math.random() - 0.49);
 
@@ -150,9 +153,8 @@ const createCounter = () => {
         if(dec < 9) dec++;
         else if (sec < 59) {dec = 0; sec++}
         else if (min < 59) {dec = 0; sec = 0; min++}       
-    }, 100)
+    }, 100);
 }
-
 
 //vamos executar alguma coisa quando a janela tiver carregada.
 window.onload = () => {
@@ -166,30 +168,66 @@ window.onload = () => {
 /* const medal = () => {
     const arrMedal = [...medal]
     const medal = document.querySelectorAll('.medal');
-
-
 } */
 
+
+
+
 createRank = () => {
-   const arrRankEnd = JSON.parse(localStorage.getItem('ranking'));
-    arrRankEnd.forEach((line) => {
+    const arrRankEnd = JSON.parse(localStorage.getItem('ranking'));
+    console.log('addRankEnd', arrRankEnd);
+    const arrOrder = arrRankEnd.sort((a, b) => {
+        return a.timeRank.localeCompare(b.timeRank);
+    });
+    console.log(arrOrder);
+    
+    arrOrder.forEach((line) => {
         const tableLine = createElement('div', 'table__line');
         tableContent.appendChild(tableLine);
+        console.log(arrOrder);
+
+        const medal = createElement('p', 'medal');
+        medal.innerHTML = line.medal;
+        tableLine.appendChild(medal);
+
+        const player = createElement('p', 'player');
+        player.innerHTML = line.player;
+        tableLine.appendChild(player);
+
+        const timeRank = createElement('p', 'time__rank');
+        timeRank.innerHTML = line.timeRank;
+        tableLine.appendChild(timeRank);
+
         
-        line.forEach((text) => {
-            const p = createElement('p', '');
-            p.innerHTML = text;
-            tableLine.appendChild(p);
+        /* line.forEach((text) => {
+            const medal = createElement('p', 'medal');
+            medal.innerHTML = text.medal;
+            tableLine.appendChild(medal);
 
-            const medal = tableLine.firstChild;
-            medal.className = 'medal';
-        });
+            const player = createElement('p', '');
+            player.innerHTML = text.player;
+            tableLine.appendChild(player);
 
+            const time = createElement('p', '');
+            time.innerHTML = text.time;
+            tableLine.appendChild(time);
+        }); */
         // medal();
     });
-
 }
 
-createRank();
+// método sort
+/* const sorted = arrayprototype.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
 
+}) */
+
+// Forma simplificada
+/* const sorted = arrayprototype.sort((a, b) => {
+    return a - b;
+}); */
+
+createRank();
 
