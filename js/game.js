@@ -7,7 +7,6 @@ const minute = document.querySelector('.minute');
 const seconds = document.querySelector('.seconds');
 const decimo = document.querySelector('.decimo');
 
-//construindo um array com o nome das imagens
 const characters = [
     'image01',
     'image02',
@@ -34,7 +33,6 @@ let rankingPlayer;
 let arrRank = [];
 
 const addItemRank = () => {
-
     const data = new Date();
     const day = String(data.getDate()).padStart(2, '0');
     const month = String(data.getMonth() + 1).padStart(2, '0');
