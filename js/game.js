@@ -10,15 +10,15 @@ const decimo = document.querySelector('.decimo');
 //construindo um array com o nome das imagens
 const characters = [
     'image01',
-    // 'image02',
-    /*     'image03',
+    'image02',
+    'image03',
     'image04',
     'image05',
     'image06',
     'image07',
     'image08',
     'image09',
-    'image10', */
+    'image10',
 ]
 
 let timerCount;
@@ -35,26 +35,31 @@ let arrRank = [];
 
 const addItemRank = () => {
 
-    const fullTimer = `${minute.innerHTML}:${seconds.innerHTML}:${decimo.innerHTML}`;
-    console.log(fullTimer);
+    const data = new Date();
+    const day = String(data.getDate()).padStart(2, '0');
+    const month = String(data.getMonth() + 1).padStart(2, '0');
+    const year = data.getFullYear();
+    
+    const currentDate = `${day}/${month}/${year}`
 
+    const fullTimer = `${minute.innerHTML}:${seconds.innerHTML}:${decimo.innerHTML}`;
+    
     if(localStorage.ranking){
         arrRank = JSON.parse(localStorage.ranking);
     }
 
-    rankingPlayer = {medal: 'medal', player: spanPlayer.innerHTML, timeRank: fullTimer};
+    rankingPlayer = {medal: 'medal', player: spanPlayer.innerHTML, data: currentDate, timeRank: fullTimer};
     // rankingPlayer.push({medal: 'medal', player: spanPlayer.innerHTML, time: fullTimer});
     arrRank.push(rankingPlayer);
     localStorage.setItem('ranking', JSON.stringify(arrRank));
 }
 
+
 const checkEnd = () => {
     const disabledCard = document.querySelectorAll('.disabled-card');
-    console.log('checkEnd, funfando')
 
-        if (disabledCard.length === 2) {
+        if (disabledCard.length === 20) {
             clearInterval(timerCount);
-            console.log('foradosettime, funfando');
 
             setTimeout(() => {
                 addItemRank();
@@ -165,69 +170,33 @@ window.onload = () => {
     loadGame();
 };
 
-/* const medal = () => {
-    const arrMedal = [...medal]
-    const medal = document.querySelectorAll('.medal');
-} */
-
-
-
-
 createRank = () => {
     const arrRankEnd = JSON.parse(localStorage.getItem('ranking'));
-    console.log('addRankEnd', arrRankEnd);
     const arrOrder = arrRankEnd.sort((a, b) => {
         return a.timeRank.localeCompare(b.timeRank);
     });
-    console.log(arrOrder);
     
     arrOrder.forEach((line) => {
         const tableLine = createElement('div', 'table__line');
         tableContent.appendChild(tableLine);
-        console.log(arrOrder);
 
         const medal = createElement('p', 'medal');
-        medal.innerHTML = line.medal;
+        medal.innerHTML = arrOrder.indexOf(line) + 1;
         tableLine.appendChild(medal);
 
         const player = createElement('p', 'player');
         player.innerHTML = line.player;
         tableLine.appendChild(player);
 
+        const data = createElement('p', 'data');
+        data.innerHTML = line.data;
+        tableLine.appendChild(data);
+
         const timeRank = createElement('p', 'time__rank');
         timeRank.innerHTML = line.timeRank;
         tableLine.appendChild(timeRank);
-
-        
-        /* line.forEach((text) => {
-            const medal = createElement('p', 'medal');
-            medal.innerHTML = text.medal;
-            tableLine.appendChild(medal);
-
-            const player = createElement('p', '');
-            player.innerHTML = text.player;
-            tableLine.appendChild(player);
-
-            const time = createElement('p', '');
-            time.innerHTML = text.time;
-            tableLine.appendChild(time);
-        }); */
-        // medal();
     });
 }
-
-// método sort
-/* const sorted = arrayprototype.sort((a, b) => {
-    if (a < b) return -1;
-    if (a > b) return 1;
-    return 0;
-
-}) */
-
-// Forma simplificada
-/* const sorted = arrayprototype.sort((a, b) => {
-    return a - b;
-}); */
 
 createRank();
 
