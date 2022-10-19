@@ -168,6 +168,13 @@ window.onload = () => {
     loadGame();
 };
 
+/* createRankItem = (tag, element) => {
+    const item = createElement(tag, element);
+    item.innerHTML = `${line}.${element}`;
+    // `${tableLine}`.appendChild(item);
+    return item;
+} */
+
 createRank = () => {
     const arrRankEnd = JSON.parse(localStorage.getItem('ranking'));
     const arrOrder = arrRankEnd.sort((a, b) => {
@@ -193,6 +200,10 @@ createRank = () => {
         const timeRank = createElement('p', 'time__rank');
         timeRank.innerHTML = line.timeRank;
         tableLine.appendChild(timeRank);
+
+        /* const timeRank = createRankItem('p', 'timeRank');
+        tableLine.appendChild(timeRank); */
+        
     });
 }
 

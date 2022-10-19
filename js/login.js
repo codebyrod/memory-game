@@ -1,4 +1,4 @@
-const form = document.querySelector('.login__form');
+const form = document.querySelector('.form');
 const input = document.querySelector('.login__input');
 const button = document.querySelector('.login__button');
 
@@ -13,7 +13,7 @@ const handleSubmit = (e) => {
 }
 
 const validaInput = (e) => {
-    if (e.target.value.length > 2) {
+    if (e.target.value.length > 2 && e.target.value.length < 15) {
         button.removeAttribute('disabled');
         return;
     }

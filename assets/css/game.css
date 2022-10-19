@@ -9,19 +9,29 @@
     padding: 20px 20px 50px;
 }
 
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.header__game{
     background-color: rgba(48, 154, 253, 0.616);
     width: 100%;
     max-width: 800px;
     padding: 30px;
     margin: 0 0 30px;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+}
 
+.header__text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: -webkit-linear-gradient(rgb(48, 59, 214), rgb(6, 9, 48));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid {

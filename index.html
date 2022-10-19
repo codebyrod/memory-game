@@ -4,30 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/login.css">
-    
+
     <script defer src="./js/login.js"></script>
 
     <title> Login | Jogo da Memória</title>
 </head>
 <body>
-    <header></header>
+    <header class="header">
+        <div class="box__logo">
+            <a href="#">
+                <img src="./assets/img/logo-africa-br.png" alt="" class="logo">
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul class="nav__list">
+                <a href="#">
+                    <li>Início</li>
+                </a>
+                <a href="#">
+                    <li>Jogar</li>
+                </a>
+                <a href="#">
+                    <li>Para Imprimir</li>
+                </a>
+                <a href="#">
+                    <li>Cartas</li>
+                </a>
+                <a href="#">
+                    <li>Sobre</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
     <main>
-
-        <form class="login__form">
-
-            <div class="login__header">
-                <img src="./assets/img/africa.png"class="login__logo" alt="logo África">
-                <h1>Jogo da Memória</h1>
+        <section class="welcome__box">
+            <div class="welcome">
+                <div class="apresentation">
+                    <img src="./assets/img/logo-africa-br.png"class="welcome__logo" alt="logo África">
+                    <h1>Jogo da Memória</h1>  
+                </div>
+                <div class="buy-digital">
+                    <h3>Compre a versão digital</h3>
+                    <p class="buy-digital__txt">Acesse a versão digital para impressão por apenas R$ 15,00 e nos ajude a dar continuidade nos nossos projetos.</p>
+                    <button class="buy-digital__btn">Em Breve!</button>
+                </div>
             </div>
-
-            <input type="text" placeholder="Player" class="login__input">
-            <button type="submit" class="login__button" disabled>Começar</button>
-        </form>
-
+            <div class="login__box">
+                <div class="curiosity">
+                    <h3 class="curiosity__title">Você sabia?</h3>
+                    <p class="curiosity__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique, hic officia quam libero, doloremque eveniet vitae quas eum ratione inventore.</p>
+                    <button class="curiosity__btn">Outra Curiosidade</button>
+                </div>
+                <form class="form">
+                    <label for="player" class="login__player">Digite seu Player</label>
+                    <input type="text" placeholder="Player" class="login__input">
+                    <button type="submit" class="login__button" disabled>Jogar</button>
+                </form>
+            </div>
+    </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="elaborate__box">
+            <h4>Elaborado por:</h4>
+            <a class="elaborate__txt" href="http://">
+                <p>meuladoafrica</p>
+            </a>
+            <a class="elaborate__txt" href="http://">
+                <p>codebyrod</p>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
