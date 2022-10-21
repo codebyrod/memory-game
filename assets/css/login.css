@@ -178,3 +178,10 @@ body{
     width: 100%;
 }
 
+.login__button:disabled{
+    background-color: #eee;
+    background-image: none;
+    color: #808080;
+    cursor: auto;
+}
+

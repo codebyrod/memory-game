@@ -4,3 +4,30 @@
     align-items: center;
     height: 70vh;
 }
+
+.login__input{
+    border: 2px solid var(--global-secundary-color);
+    border-radius: 8px;
+    color: var(--global-secundary-color);
+    font-size: 0.8em;
+    margin-bottom: 15px;
+    max-width: 400px;
+    outline: none;
+    padding: 15px;
+    width: 100%;
+    font-family: var(--global-secundary-font);
+}
+
+.login__button{
+    font-family: var(--global-secundary-font);
+    font-size: 0.9em;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login__button:disabled{
+    background-color: #eee;
+    background-image: none;
+    color: #808080;
+    cursor: auto;
+}
