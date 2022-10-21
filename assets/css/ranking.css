@@ -1,3 +1,12 @@
+.main__ranking{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 82vh;
+    /* scroll-behavior: auto; */
+}
+
 .table{
     background-color: azure;
     width: 100vw;
@@ -16,8 +25,12 @@
     color: white;
 }
 
-.table__line{
-    color: black;
+.table__header p{
+    color: rgb(255, 255, 255);
+}
+
+.table__content p{
+    color: rgb(0, 0, 0);
 }
 
 
