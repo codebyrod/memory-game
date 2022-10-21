@@ -8,16 +8,20 @@ const seconds = document.querySelector('.seconds');
 const decimo = document.querySelector('.decimo');
 
 const characters = [
-    'image01',
-    'image02',
-    'image03',
-    'image04',
-    'image05',
-    'image06',
-    'image07',
-    'image08',
-    'image09',
-    'image10',
+    'abubakari',
+    'bronzes-benin',
+    'dogon',
+    'forja-de-aco',
+    'grande-zimbabwe',
+    'ishango',
+    'meri-ptah',
+    'muralhas-benin',
+    'namoratunga',
+    'pi-hipotenusa',
+    'rekhet',
+    'sankore',
+    'sistema-binario',
+    'tradicao-oral'
 ]
 
 let timerCount;

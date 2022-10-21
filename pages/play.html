@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/ranking.css">
+    <link rel="stylesheet" href="../assets/css/play.css">
 
     <script defer src="../js/game.js"></script>
 
@@ -44,9 +45,12 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <h1>Jogar</h1>
-            <p>Em breve!</p>
+        <main class="login__play">
+            <form class="form">
+                <label for="player" class="login__player">Digite seu Player</label>
+                <input type="text" placeholder="Player" class="login__input">
+                <button type="submit" class="login__button button__geral" disabled>Jogar</button>
+            </form>
         </main>
         <footer></footer>
 </body>

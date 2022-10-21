@@ -63,7 +63,7 @@ body{
     position: absolute;
     background-size: cover;
     background-position: center;
-    border: 2px solid rgba(243, 226, 73, 0.842);
+    /* border: 2px solid rgba(243, 226, 73, 0.842); */
     border-radius: 5px;
     transition: all 700ms ease;
 }
@@ -73,7 +73,7 @@ body{
 }
 
 .back{
-    background-image: url('../img/exemplo-verso.png');
+    background-image: url('../img/verso.png');
     backface-visibility: hidden;
 }
 
