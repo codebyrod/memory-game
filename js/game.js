@@ -13,6 +13,7 @@ const characters = [
     'dogon',
     'forja-de-aco',
     'grande-zimbabwe',
+    'geometria-fractal',
     'ishango',
     'meri-ptah',
     'muralhas-benin',
