@@ -1,0 +1,132 @@
+p, .list-book li {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: red; */
+}
+
+.main__about{
+    
+    /* background-color: red; */
+}
+
+.container-whoiam{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+    /* background-color: blueviolet; */
+    padding: 1rem;
+}
+
+.box-whoiam{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* background-color: rgb(97, 17, 247); */
+    width: 60vw;
+    height: 20vw;
+}
+
+.whoiam__btn{
+    width: 12rem;
+    border-radius: 8px;
+    padding: 0.8rem;
+    background-image: linear-gradient(to right, var(--global-secundary-color) 0%, #732ee4  35%, #1d4dbd  100%);
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+
+.whoiam__btn:hover{
+    background-position: right center;
+    cursor: pointer;
+}
+
+.box-contact{
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    /* background-color: aquamarine; */
+    width: 31vw;
+}
+
+.box-social {
+    /* background-color: red; */
+    width: 12vw;
+    /* height: 7vw; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid rgba(255, 255, 255, 0.5) 2px;
+    padding: 0.4rem;
+    opacity: 0.5;
+    transition: ease-in-out 700ms;
+}
+
+.box-social:hover{
+    opacity: 1;
+}
+
+.box-social a{
+    /* padding: 1rem; */
+    height: 2vw;
+    /* background-color: blue; */
+    opacity: 0.3;
+    transition: ease-in-out 700ms;
+}
+
+.box-social a:hover{
+    opacity: 1;
+}
+
+.box-social img{
+    width: 2vw;
+}
+
+.box-whoiam__img img{
+    width: 20vw;
+ }
+
+.list-book{
+padding: 1rem;
+}
+
+.container-history {
+    /* background-color: #f04b0a; */
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: center;
+    padding: 2rem;
+    height: 30vw;
+}
+
+.box-history {
+    /* background-color: #732ee4; */
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: center;
+    width: 60vw;
+    height: 25vw;
+    padding: 2rem;
+}
+
+.container-materials{
+    /* background-color: purple; */
+}
+
+.container-materials{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-materials, .box-devsoft, .box-scitec{
+    padding: 1rem;
+    /* background-color: cadetblue; */
+    width: 70vw;
+}
+
+
+
+

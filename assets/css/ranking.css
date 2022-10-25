@@ -33,6 +33,20 @@
     color: rgb(0, 0, 0);
 }
 
+.btn__menu, .btn__play-again{
+    width: 12rem;
+    border-radius: 8px;
+    padding: 0.8rem;
+    background-image: linear-gradient(to right, var(--global-secundary-color) 0%, #732ee4  35%, #1d4dbd  100%);
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+
+.btn__menu:hover, .btn__play-again:hover{
+    background-position: right center;
+    cursor: pointer;
+}
+
 
 
 

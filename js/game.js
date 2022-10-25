@@ -61,7 +61,7 @@ const addItemRank = () => {
 const checkEnd = () => {
     const disabledCard = document.querySelectorAll('.disabled-card');
 
-        if (disabledCard.length === 20) {
+        if (disabledCard.length === 30) {
             clearInterval(timerCount);
 
             setTimeout(() => {
